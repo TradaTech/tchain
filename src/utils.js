@@ -61,6 +61,9 @@ export function registerTxForm($form, txData, privateKey) {
 
         //console.log(txData)
         formData.data = JSON.stringify(txData);
+        if(formData.private_key_new != ''){
+            privateKey = formData.private_key_new;
+        }
         formData.from = ecc.toPublicKey(privateKey);
         var tx = new Tx(formData.from, formData.to, formData.value, formData.fee, txData);
         formData.signature = ecc.sign(tx.hash, privateKey)
