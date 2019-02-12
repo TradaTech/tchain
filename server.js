@@ -58,7 +58,7 @@ app.get('/api/call', async function(req, res) {
             data: result
         });
     } catch (error) {
-        //console.log(error)
+        console.log(error)
         res.json({
             success: false,
             error: String(error)
